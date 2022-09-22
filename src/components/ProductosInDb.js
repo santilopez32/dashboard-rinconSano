@@ -3,16 +3,14 @@ import { useState, useEffect } from "react"
 
 
 function ProductosInDb () {
-    const [productos, setProductos] = useState([]) 
+    const [categ, setCateg] = useState({}) 
 
-    const initialUrl = "https://rickandmortyapi.com/api/character"
-
-    /*'http://localhost:3000/api/products'*/
+    const initialUrl = 'http://localhost:3000/api/categ'
 
     const fetchProducts = (url) => {
         fetch(url)
         .then((respuesta) =>  respuesta.json())
-        .then((productos) => setProductos(productos.results))
+        .then((categ) => setCateg(categ.data.categ[1]))
         .catch(error => console.log(error))
     }
 
@@ -30,16 +28,17 @@ function ProductosInDb () {
                     <div className="card shadow mb-4">
                     <div className="card-header py-3">
                         <h5 className="m-0 font-weight-bold text-gray-800">
-                        Categorías en nuestra base de datos
+                        Cantidad de productos por categoría
                         </h5>
                     </div>
                     <div className="card-body">
                         <div className="row">
                         <div className="col-lg-6 mb-4">
                             <div className="card bg-dark text-white shadow">
-                            <div className="card-body">Acción</div>
+                            <div className="card-body">{categ.nombre}</div>
                             </div>
                         </div>
+                        
                         <div className="col-lg-6 mb-4">
                             <div className="card bg-dark text-white shadow">
                             <div className="card-body">Animación</div>

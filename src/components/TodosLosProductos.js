@@ -4,14 +4,12 @@ import { useState, useEffect } from "react"
 function TodosLosProductos(){
 	const [productos, setProductos] = useState([]) 
 
-    const initialUrl = "https://rickandmortyapi.com/api/character"
-
-    /*'http://localhost:3000/api/products'*/
+    const initialUrl = "http://localhost:3000/api/products"
 
     const fetchProducts = (url) => {
         fetch(url)
         .then((respuesta) =>  respuesta.json())
-        .then((productos) => setProductos(productos.results))
+        .then((productos) => setProductos(productos.data.productos))
         .catch(error => console.log(error))
     }
 
@@ -50,10 +48,10 @@ function TodosLosProductos(){
                                             return(
 											<tr>									
 												<td  key = {i}>{productos.id}</td>
-												<td>{productos.name}</td>
-												<td>{productos.status}</td>
-												<td>{productos.species}</td>
-												<td>{productos.gender}</td>									
+												<td>{productos.nombre}</td>
+												<td>{productos.precio}</td>
+												<td>{productos.Categoria.nombre}</td>
+												<td>{productos.descuento}</td>									
 											</tr>                                                
                                             )
                                         })

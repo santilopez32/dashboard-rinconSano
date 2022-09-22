@@ -1,7 +1,8 @@
 import React from 'react';
-import GenresInDb from './ProductosInDb';
+import ProductosInDb from './ProductosInDb';
 import TableData from './TableData';
 import { useState, useEffect } from "react"
+import imagen from "../assets/images/galletitasNina.jpg"
 
 function ContentRowTop(){
 	const [productos, setProductos] = useState({}) 
@@ -45,15 +46,17 @@ function ContentRowTop(){
 								</div>								 																									
 								<div className="card-body">
 									<div className="text-center">
-										<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 25 +'rem'}} src={productos.image}  alt=" Galletitas Nina "/>
+										<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 25 +'rem'}} src={imagen}  alt=" Galletitas Nina "/>
 									</div>
+									<h5>Producto:</h5>
 									<p>{productos.nombre}</p>
-                    				<p>{productos.gender}</p>					
+									<h5>Descripción:</h5>
+                    				<p>{productos.descripcion}</p>					
 									<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalle del producto</a>
 								</div>								
 							</div>							
 						</div>						
-						<GenresInDb />
+						<ProductosInDb />
 					</div>									
 				</div>
         </React.Fragment>

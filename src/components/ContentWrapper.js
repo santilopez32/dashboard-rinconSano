@@ -3,7 +3,10 @@ import TopBar from './TopBar';
 import ContentRowTop from './ContentRowTop';
 import TodosLosProductos from './TodosLosProductos';
 import Footer from './Footer';
+
+
 function ContentWrapper(){
+    
     return (
         <React.Fragment>
             {/*<!-- Content Wrapper -->*/}
@@ -19,4 +22,5 @@ function ContentWrapper(){
         </React.Fragment>
     )
 }
+
 export default ContentWrapper;

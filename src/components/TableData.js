@@ -1,5 +1,7 @@
 import React from 'react';
 import SmallCard from './SmallCard';
+import SmallCard1 from './SmallCard1';
+import SmallCard2 from './SmallCard2';
 
 let productInDataBase = {
     color:   "primary",
@@ -30,11 +32,9 @@ function TableData(){
         <React.Fragment>
         {/*<!-- Content Row -->*/}
         <div className="row">
-            {
-                cardProps.map((producto,index)=>{
-                    return <SmallCard  {...producto}  key= {index}/>
-                })
-            }      
+             <SmallCard />
+             <SmallCard1 />
+             <SmallCard2 />            
         </div>
         </React.Fragment>
     )
