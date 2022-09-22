@@ -35,55 +35,9 @@ function ProductosInDb () {
                         <div className="row">
                         <div className="col-lg-6 mb-4">
                             <div className="card bg-dark text-white shadow">
-                            <div className="card-body">{categ.nombre}</div>
+                            <div className="card-body">{categ.nombre}: {categ.Productos.length}</div>
                             </div>
-                        </div>
-                        
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                            <div className="card-body">Animación</div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                            <div className="card-body">Aventura</div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                            <div className="card-body">Ciencia Ficción</div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                            <div className="card-body">Comedia</div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                            <div className="card-body">Documental</div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                            <div className="card-body">Drama</div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                            <div className="card-body">Fantasia</div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                            <div className="card-body">Infantiles</div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                            <div className="card-body">Musical</div>
-                            </div>
-                        </div>
+                        </div>                                                                        
                         </div>
                     </div>
                     </div>
