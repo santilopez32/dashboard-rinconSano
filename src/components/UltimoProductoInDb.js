@@ -15,7 +15,7 @@ function UltimoProductoInDb(){
         fetch(url)
         .then((respuesta) =>  respuesta.json())
         .then((productos) => {
-            fetchProductoIndividual(`http://localhost:3000/api/products/${productos.data.productos.length -1}`)
+            fetchProductoIndividual(`http://localhost:3000/api/products/${productos.data.productos.length +12}`)
             setProductos(productos.data.productos[productos.data.productos.length-1])})
         .catch(error => console.log(error))
         console.log(productos);
@@ -52,7 +52,7 @@ function UltimoProductoInDb(){
         <div className="col-lg-6 mb-4">            
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h5 className="m-0 font-weight-bold text-gray-800">Último producto vendido</h5>
+                    <h5 className="m-0 font-weight-bold text-gray-800">Último producto en stock</h5>
                 </div>
                 <div className="card-body">
                     <div className="text-center">
