@@ -1,27 +1,47 @@
 import React from 'react';
 import { useState, useEffect } from "react"
-import imagen from "../assets/images/galletitasNina.jpg"
+
 
 function UltimoProductoInDb(){
     const [productos, setProductos] = useState([]) 
-
-    const initialUrl = "http://localhost:3000/api/products"
-
+    const [pic, setProductPic] = useState([]) 
+    
+    const initialUrl = `http://localhost:3000/api/products`
+    let secondUrl = `http://localhost:3000/api/products/${productos.id}`
+    
     /*'http://localhost:3000/api/products'*/
-
+    
     const fetchProducts = (url) => {
         fetch(url)
         .then((respuesta) =>  respuesta.json())
-        .then((productos) => setProductos(productos.data.productos[productos.data.productos.length-1]))
+        .then((productos) => {
+            fetchProductoIndividual(`http://localhost:3000/api/products/${productos.data.productos.length -1}`)
+            setProductos(productos.data.productos[productos.data.productos.length-1])})
         .catch(error => console.log(error))
+        console.log(productos);
     }
-
+    const fetchProductoIndividual = (url) => {       
+        fetch(url)
+        .then((respuesta) =>  respuesta.json())
+        .then((pic) => {
+            if(!pic.error){
+                setProductPic(pic.data.linkToImage);
+            } else{
+                setProductPic([])
+            }
+        })        
+    }
+    
+    
     useEffect(()=>{
         console.log("%cSe montó un componente", "color:green");
-        fetchProducts(initialUrl)        
+        fetchProducts(initialUrl)
+        
+        console.log(secondUrl)        
     }, [])
     useEffect(()=>{
-        console.log(productos);
+        /*console.log(productos);
+        console.log(productos.imagen)*/
         console.log("%cSe actualizó un componente", "color:yellow");
     }, [])
     if(!productos){
@@ -36,9 +56,10 @@ function UltimoProductoInDb(){
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 20 +'rem'}} src={imagen}  alt=" Galletitas Nina "/>
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 20 +'rem'}} src={pic} alt=" Galletitas Nina "/>
                     </div>
                     <h5>Producto:</h5>
+                    <p>{productos.imagen}</p>
                     <p>{productos.nombre}</p>
                     <h5>Descripción:</h5>
                     <p>{productos.descripcion}</p>
